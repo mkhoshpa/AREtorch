@@ -149,7 +149,7 @@ class LinfPGDAttack:
 
 
 """PyTorch Carlini and Wagner L2 attack algorithm.
-
+partialy adopted from https://github.com/rwightman/pytorch-nips2017-attack-example
 Based on paper by Carlini & Wagner, https://arxiv.org/abs/1608.04644 and a reference implementation at
 https://github.com/tensorflow/cleverhans/blob/master/cleverhans/attacks_tf.py
 """
@@ -543,8 +543,10 @@ class SPSA:
       g_var=torch.tensor(g_np,device=self.device,dtype=torch.float)
       return g_var
 
-
-
+"""
+EAD attack: https://arxiv.org/abs/1709.04114
+Partialy adopted from https://github.com/rwightman/pytorch-nips2017-attack-example
+"""
 class EAD:
     def __init__(self,model, targeted=True, search_steps=5, max_steps=1000, device='cuda', debug=False,lr=0.001,beta=0.01):
         self.model=model
